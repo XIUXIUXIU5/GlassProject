@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MainActivity</string>
+    <string name="glass_rdt_voice_trigger">image an rdt</string>
+    <string name="glass_imager_voice_trigger">show preview</string>
+    <string name="glass_plant_imager_voice_trigger">image a leaf</string>
+    <string name="glass_voice_prompt">center rdt in front of camera</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_stop">Stop</string>
+    <string name="rdtOnRuning">App is running</string>
+    <string name="RDT">RDT</string>
+    <string name="Leaf">Leaf</string>
+    <string name="Mercury">Mercury</string>
+    <string name="Imager">Imager</string>
+    <string name="title_activity_start_plant">StartPlant</string>
+    <string name="Indoor">Indoor</string>
+    <string name="Outdoor">Outdoor</string>
+    <string name="title_activity_plant_camera">PlantCameraActivity</string>
+    <string name="instruction">Swipe to choose lighting condition</string>
+    <string name="title_activity_confirm_plant">ConfirmPlantActivity</string>
+    <string name="Confirmation">Confirmation</string>
+
+</resources>

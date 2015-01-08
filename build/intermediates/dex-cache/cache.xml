@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/libs/log4j-1.2.14.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="03b254c872b95141751f414e353a25c2ac261b51">
+        <dex dex="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/log4j-1.2.14-0f43fe1bd9b062d086f02a18685f5138f263ed0d.jar" />
+    </item>
+    <item
+        jar="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/libs/slf4j-api-1.5.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2aaf496dfd551adb9b079f58a7e2d55eb383fc82">
+        <dex dex="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/slf4j-api-1.5.8-c10f5ccc8593767b7a6c77eadc6dcf300a7ec7b5.jar" />
+    </item>
+    <item
+        jar="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/libs/slf4j-log4j12-1.5.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="da00a151c4db31b5be23e5f2b9f528735fddc384">
+        <dex dex="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/slf4j-log4j12-1.5.8-9e9762e92d6310324d7dbc0ca22d1d7d85d8149d.jar" />
+    </item>
+    <item
+        jar="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/libs/libthrift-0.9.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bac5297371f3757eb31aa95b562157196fad60d3">
+        <dex dex="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/libthrift-0.9.0-5dfd305e37c8894aa9a56bb7864940330d2eb73f.jar" />
+    </item>
+    <item
+        jar="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/libs/commons-logging-1.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5043bfebc3db072ed80fbd362e7caf00e885d8ae">
+        <dex dex="/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/commons-logging-1.1.1-afec5c8ee1c6a9c11dc8e1d877c81623ad4df412.jar" />
+    </item>
+
+</items>

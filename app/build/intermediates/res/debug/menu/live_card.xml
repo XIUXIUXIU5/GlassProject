@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/RDT" android:title="@string/RDT"
+        android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/Leaf" android:title="@string/Leaf"
+    android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/Mercury" android:title="@string/Mercury"
+        android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/Imager" android:title="@string/Imager"
+        android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/action_stop" android:title="@string/action_stop"
+        android:icon="@drawable/ic_stop" />
+</menu><!-- From: file:/Users/shaolei/AndroidStudioProjects/GlassProject1/app/src/main/res/menu/live_card.xml -->

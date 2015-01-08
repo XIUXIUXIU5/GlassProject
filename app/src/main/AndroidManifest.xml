@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ozcanlab.rdt"
+    android:versionCode="3"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+
+    <application
+        android:name="com.ozcanlab.application.RDTApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="RDT on Glass" >
+        <uses-library
+            android:name="com.google.android.glass"
+            android:required="true" />
+
+        <service
+            android:name="com.ozcanlab.startup.StartupService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/glass_rdt_voice_trigger" />
+        </service>
+
+        <activity
+            android:name="com.ozcanlab.activities.CameraActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/glass_rdt_voice_trigger" />
+        </activity>
+        <activity
+            android:name="com.ozcanlab.activities.PlantImagerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/glass_plant_imager_voice_trigger" />
+        </activity>
+        <activity
+            android:name="com.ozcanlab.activities.ImagerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/glass_imager_voice_trigger" />
+        </activity>
+        <!--
+        <service
+            android:name="com.ozcanlab.services.RDTService"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:enabled="true"
+            tools:ignore="ExportedContentProvider">
+        </service>
+
+        <activity
+            android:name="com.ozcanlab.startup.StartupActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:label="Test Glass"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSEABLE" />
+                <data android:scheme="rdtglass" />
+            </intent-filter>
+        </activity>
+        
+        <service android:name="com.ozcanlab.services.DispatcherService"></service>
+        <receiver android:name="com.ozcanlab.startup.ServiceAutoStarter">  
+            <intent-filter>  
+                <action android:name="android.intent.action.BOOT_COMPLETED" />  
+            </intent-filter>  
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.ozcanlab.startup.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="com.ozcanlab.activities.StartPlant"
+            android:label="@string/title_activity_start_plant" >
+        </activity>
+        <activity
+            android:name="com.ozcanlab.activities.ConfirmPlantActivity"
+            android:label="@string/title_activity_confirm_plant" >
+        </activity>
+    </application>
+
+</manifest>

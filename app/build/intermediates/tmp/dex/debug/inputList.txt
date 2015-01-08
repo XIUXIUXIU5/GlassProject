@@ -1,0 +1,4 @@
+/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/classes/debug
+/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/slf4j-log4j12-1.5.8-9e9762e92d6310324d7dbc0ca22d1d7d85d8149d.jar
+/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/slf4j-api-1.5.8-c10f5ccc8593767b7a6c77eadc6dcf300a7ec7b5.jar
+/Users/shaolei/AndroidStudioProjects/GlassProject1/app/build/intermediates/pre-dexed/debug/libthrift-0.9.0-5dfd305e37c8894aa9a56bb7864940330d2eb73f.jar
