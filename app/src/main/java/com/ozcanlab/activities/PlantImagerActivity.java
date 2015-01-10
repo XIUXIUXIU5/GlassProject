@@ -658,7 +658,7 @@ public class PlantImagerActivity extends Activity {
 
             //save the photo and record the photo path
             SaveImageTask saveImage = new SaveImageTask();
-            saveImage.execute();
+            saveImage.execute(data);
             while (saveImage.isLocked())
                 continue;
 
@@ -669,7 +669,7 @@ public class PlantImagerActivity extends Activity {
             }
 
             //invoke the confirmation activity
-            else {
+            else if(numOfPictureTaken == 2) {
                 Intent intent = new Intent(PlantImagerActivity.this, ConfirmPlantActivity.class);
                 intent.putExtra(INDOOR_MESSAGE, Indoor);
                 intent.putExtra(FIRST_PHOTO_PATH, firstPhotoPath);
@@ -698,8 +698,7 @@ public class PlantImagerActivity extends Activity {
         @Override
         protected void onPostExecute(Void v)
         {
-            numOfPictureTaken++;
-           locked = false;
+
             super.onPostExecute(null);
         }
         @Override
@@ -737,6 +736,8 @@ public class PlantImagerActivity extends Activity {
                 }
 
                 refreshGallery(outFile);
+                numOfPictureTaken++;
+                locked = false;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

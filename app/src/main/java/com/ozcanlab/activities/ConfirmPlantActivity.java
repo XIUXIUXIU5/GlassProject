@@ -14,14 +14,16 @@ import android.widget.TextView;
 
 import com.ozcanlab.rdt.R;
 
-import java.io.File;
-
 public class ConfirmPlantActivity extends Activity {
 
     private boolean Indoor;
     private Location lastLocation;
     private String firstPhotoPath;
     private String secondPhotoPath;
+    private ImageView myImage1;
+    private ImageView myImage2;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +34,19 @@ public class ConfirmPlantActivity extends Activity {
         secondPhotoPath = intent.getStringExtra(PlantImagerActivity.SECOND_PHOTO_PATH);
        // lastLocation = intent.
 
-        File imgFile1 = new  File(firstPhotoPath);
-        Bitmap myBitmap1 = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-        ImageView myImage1 = (ImageView) findViewById(R.id.image_1);
-        myImage1.setImageBitmap(myBitmap1);
+        setContentView(R.layout.activity_confirm_plant);
 
-        File imgFile2 = new  File(secondPhotoPath);
-        Bitmap myBitmap2 = BitmapFactory.decodeFile(imgFile2.getAbsolutePath());
-        ImageView myImage2 = (ImageView) findViewById(R.id.image_2);
-        myImage2.setImageBitmap(myBitmap2);
+        BitmapFactory.Options options;
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 4;
+        Bitmap bitmap1 = BitmapFactory.decodeFile(firstPhotoPath,options);
+        myImage1 = (ImageView) findViewById(R.id.image_1);
+        myImage1.setImageBitmap(bitmap1);
+
+        Bitmap bitmap2 = BitmapFactory.decodeFile(secondPhotoPath,options);
+        myImage2 = (ImageView) findViewById(R.id.image_2);
+        myImage2.setImageBitmap(bitmap2);
+
 
         TextView IndoorTextView = (TextView) findViewById(R.id.Indoor);
 
@@ -52,7 +58,6 @@ public class ConfirmPlantActivity extends Activity {
         {
             IndoorTextView.setText("Outdoor");
         }
-        setContentView(R.layout.activity_confirm_plant);
 
     }
 
