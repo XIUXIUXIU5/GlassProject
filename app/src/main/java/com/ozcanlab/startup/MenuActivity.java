@@ -5,7 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ozcanlab.activities.CameraActivity;
-import com.ozcanlab.activities.ImagerActivity;
+import com.ozcanlab.activities.ImagerMenuActivity;
 import com.ozcanlab.activities.StartPlant;
 import com.ozcanlab.rdt.R;
 
@@ -70,7 +70,7 @@ public class MenuActivity extends Activity {
         //open the corresponding activity
         if (mStartImager) {
             mStartImager = false;
-            startActivity(new Intent(MenuActivity.this, ImagerActivity.class));
+            startActivity(new Intent(MenuActivity.this, ImagerMenuActivity.class));
         }
 
 

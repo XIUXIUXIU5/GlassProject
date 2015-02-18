@@ -137,6 +137,17 @@
             android:name="com.ozcanlab.activities.ConfirmPlantActivity"
             android:label="@string/title_activity_confirm_plant" >
         </activity>
+        <activity
+            android:name="com.ozcanlab.activities.PlantMenuActivity"
+            android:label="@string/title_activity_plant_menu"
+            android:theme="@style/MenuTheme" >
+        </activity>
+
+        <activity
+            android:name="com.ozcanlab.activities.ImagerMenuActivity"
+            android:label="@string/title_activity_imager_menu"
+            android:theme="@style/MenuTheme" >
+        </activity>
     </application>
 
 </manifest>

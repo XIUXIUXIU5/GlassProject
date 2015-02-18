@@ -38,6 +38,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ozcanlab.network.Transport;
 import com.ozcanlab.rdt.R;
@@ -66,7 +67,7 @@ import static com.ozcanlab.utils.Constants.APP_TAG;
 
 /**
  *
- * @author SaqibIsGreat
+ * @author SaqibIsGreat, Lei Shao
  */
 public class PlantImagerActivity extends Activity {
 
@@ -203,7 +204,7 @@ public class PlantImagerActivity extends Activity {
      *
      * @param //picturePath
      */
-    //@shaolei
+    //@Lei Shao
     // processPictureWhenReady and onActivityResult are all GDK method that use an intent to capture
     // the image without directly using the Camera object.
     // but to create the overlay we need to have control the camera so these two method won't be used
@@ -659,6 +660,8 @@ public class PlantImagerActivity extends Activity {
             //save the photo and record the photo path
             SaveImageTask saveImage = new SaveImageTask();
             saveImage.execute(data);
+
+            Toast.makeText(PlantImagerActivity.this, "Processing the picture", Toast.LENGTH_SHORT).show();
             while (saveImage.isLocked())
                 continue;
 

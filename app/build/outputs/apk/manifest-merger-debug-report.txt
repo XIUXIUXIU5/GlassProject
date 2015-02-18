@@ -161,3 +161,19 @@ ADDED from AndroidManifest.xml:136:9
 		ADDED from AndroidManifest.xml:138:13
 	android:name
 		ADDED from AndroidManifest.xml:137:13
+activity#com.ozcanlab.activities.PlantMenuActivity
+ADDED from AndroidManifest.xml:140:9
+	android:label
+		ADDED from AndroidManifest.xml:142:13
+	android:theme
+		ADDED from AndroidManifest.xml:143:13
+	android:name
+		ADDED from AndroidManifest.xml:141:13
+activity#com.ozcanlab.activities.ImagerMenuActivity
+ADDED from AndroidManifest.xml:146:9
+	android:label
+		ADDED from AndroidManifest.xml:148:13
+	android:theme
+		ADDED from AndroidManifest.xml:149:13
+	android:name
+		ADDED from AndroidManifest.xml:147:13

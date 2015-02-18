@@ -8,7 +8,6 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.NetworkErrorException;
 import android.app.Activity;
-import static android.content.Context.SENSOR_SERVICE;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,7 +19,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -29,7 +27,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileObserver;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -40,18 +37,18 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-//import com.google.glass.location.GlassLocationManager;
+
 import com.ozcanlab.network.Transport;
 import com.ozcanlab.rdt.R;
 import com.ozcanlab.thrift.Params;
 import com.ozcanlab.thrift.RdtReader;
 import com.ozcanlab.utils.CameraUtils;
-import static com.ozcanlab.utils.Constants.*;
 import com.ozcanlab.utils.FileUtils;
 import com.ozcanlab.views.CameraPreview;
 import com.ozcanlab.views.CameraSurfaceView;
-import com.ozcanlab.views.CameraView;
+
+import org.apache.thrift.transport.TTransportException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -62,9 +59,10 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.thrift.transport.TTransportException;
+
+import static com.ozcanlab.utils.Constants.APP_TAG;
+
+//import com.google.glass.location.GlassLocationManager;
 
 /**
  *
@@ -90,6 +88,10 @@ public class ImagerActivity extends Activity {
     private LocationManager locationManager;
     private Location lastKnownLocation;
 
+    private boolean mStartHorRect;
+    private boolean mStartVertRect;
+    private boolean mStartSquare;
+
     /**
      * Called when the activity is first created.
      */
@@ -101,7 +103,13 @@ public class ImagerActivity extends Activity {
 
         /* This code together with the one in onDestroy() 
          * will make the screen be always on until this Activity gets destroyed. */
-        setContentView(R.layout.main);
+
+        Intent intent = getIntent();
+        mStartHorRect = intent.getBooleanExtra(ImagerMenuActivity.HORRECT_MESSAGE,false);
+        mStartSquare = intent.getBooleanExtra(ImagerMenuActivity.SQUARE_MESSAGE,false);
+        mStartVertRect = intent.getBooleanExtra(ImagerMenuActivity.VERRECT_MESSAGE,false);
+
+         setContentView(R.layout.main);
 
         Window win = getWindow();
         win.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
@@ -500,11 +508,30 @@ public class ImagerActivity extends Activity {
 
                 // Overlay
                 if (frameLayout.findViewById(R.id.camera_rdt_overlay) == null) {
-                    CameraSurfaceView cameraSurfaceView = new CameraSurfaceView(ImagerActivity.this,"Imager");
-                    cameraSurfaceView.setId(R.id.camera_rdt_overlay);
-                    frameLayout.addView(cameraSurfaceView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                    cameraSurfaceView.setZOrderMediaOverlay(true);
-                    cameraSurfaceView.setZOrderOnTop(true);
+                    if(mStartVertRect == true) {
+                        CameraSurfaceView cameraSurfaceView = new CameraSurfaceView(ImagerActivity.this, "RDT");
+                        cameraSurfaceView.setId(R.id.camera_rdt_overlay);
+                        frameLayout.addView(cameraSurfaceView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        cameraSurfaceView.setZOrderMediaOverlay(true);
+                        cameraSurfaceView.setZOrderOnTop(true);
+                    }
+                    else if (mStartHorRect == true)
+                    {
+                        CameraSurfaceView cameraSurfaceView = new CameraSurfaceView(ImagerActivity.this, "Imager");
+                        cameraSurfaceView.setId(R.id.camera_rdt_overlay);
+                        frameLayout.addView(cameraSurfaceView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        cameraSurfaceView.setZOrderMediaOverlay(true);
+                        cameraSurfaceView.setZOrderOnTop(true);
+                    }
+
+                    else if(mStartSquare == true)
+                    {
+                        CameraSurfaceView cameraSurfaceView = new CameraSurfaceView(ImagerActivity.this, "Circle");
+                        cameraSurfaceView.setId(R.id.camera_rdt_overlay);
+                        frameLayout.addView(cameraSurfaceView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        cameraSurfaceView.setZOrderMediaOverlay(true);
+                        cameraSurfaceView.setZOrderOnTop(true);
+                    }
                 }
             }
             else {

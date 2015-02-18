@@ -22,5 +22,12 @@
     <string name="instruction">Swipe to choose lighting condition</string>
     <string name="title_activity_confirm_plant">ConfirmPlantActivity</string>
     <string name="Confirmation">Confirmation</string>
-
+    <string name="Message">tap to open menu</string>
+    <string name="title_activity_plant_menu">PlantMenuActivity</string>
+    <string name="Send">Send</string>
+    <string name="Retake">Retake</string>
+    <string name="title_activity_imager_menu">ImagerMenuActivity</string>
+    <string name="mStartHorRect"> Horizontal Rectangle</string>
+    <string name="mStartVertRect">Vertical Rectangle</string>
+    <string name="mStartSquare">Circle</string>
 </resources>

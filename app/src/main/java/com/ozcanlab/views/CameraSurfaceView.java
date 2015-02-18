@@ -10,10 +10,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
-import android.graphics.Paint.Style;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -47,6 +46,8 @@ public class CameraSurfaceView extends SurfaceView implements
             overlay = BitmapFactory.decodeResource(getResources(), R.drawable.overlay);
         else if (overlayType == "Imager")
             overlay = BitmapFactory.decodeResource(getResources(), R.drawable.rect);
+        else if(overlayType == "Circle")
+            overlay = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
         else if (overlayType == "PlantImagerRed")
         	overlay = BitmapFactory.decodeResource(getResources(), R.drawable.rect_red);
         else if (overlayType == "PlantImagerWhite")

@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Confirmation"
-        android:textSize="30dp"
+        android:textSize="15dp"
         />
     <TextView
         android:id="@+id/Indoor"
@@ -16,7 +16,7 @@
         android:layout_below="@id/confirmation"
         android:text="@string/Confirmation"
 
-        android:textSize="25dp"
+        android:textSize="13dp"
         />
 
 
@@ -27,6 +27,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ImageViews"
+        android:layout_below="@id/Indoor"
         >
 
 
@@ -46,13 +47,14 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <Button
+    <TextView
+        android:id="@+id/Message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="send"
-        android:onClick="sendMessage"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/ImageViews" />
+        android:layout_below="@id/ImageViews"
+        android:text="@string/Message"
+
+        android:textSize="13dp"
+        />
 
 </RelativeLayout>

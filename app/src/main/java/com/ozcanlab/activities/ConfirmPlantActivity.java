@@ -1,6 +1,7 @@
 package com.ozcanlab.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,10 +9,12 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.glass.touchpad.Gesture;
+import com.google.android.glass.touchpad.GestureDetector;
 import com.ozcanlab.rdt.R;
 
 public class ConfirmPlantActivity extends Activity {
@@ -22,6 +25,7 @@ public class ConfirmPlantActivity extends Activity {
     private String secondPhotoPath;
     private ImageView myImage1;
     private ImageView myImage2;
+    private GestureDetector mGestureDetector;
 
 
     @Override
@@ -58,6 +62,7 @@ public class ConfirmPlantActivity extends Activity {
         {
             IndoorTextView.setText("Outdoor");
         }
+        mGestureDetector = createGestureDetector(this);
 
     }
 
@@ -69,10 +74,7 @@ public class ConfirmPlantActivity extends Activity {
         return true;
     }
 
-    //TODO:implement this method to send the photos
-    public void sendMessage(View view){
-       // Intent intent = new Intent(this, )
-    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -87,4 +89,59 @@ public class ConfirmPlantActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private GestureDetector createGestureDetector(final Context context) {
+        GestureDetector gestureDetector = new GestureDetector(context);
+        //Create a base listener for generic gestures
+        gestureDetector.setBaseListener( new GestureDetector.BaseListener() {
+            @Override
+            public boolean onGesture(Gesture gesture) {
+                if (gesture == Gesture.TAP) {
+                    // do something on tap
+                    Intent menuIntent = new Intent(ConfirmPlantActivity.this, PlantMenuActivity.class);
+                   // menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                           // Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(menuIntent);
+                    return true;
+                } else if (gesture == Gesture.TWO_TAP) {
+                    // do something on two finger tap
+                    return true;
+                } else if (gesture == Gesture.SWIPE_RIGHT) {
+                    // do something on right (forward) swipe
+
+                    return true;
+                } else if (gesture == Gesture.SWIPE_LEFT) {
+                    // do something on left (backwards) swipe
+
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        gestureDetector.setFingerListener(new GestureDetector.FingerListener() {
+            @Override
+            public void onFingerCountChanged(int previousCount, int currentCount) {
+                // do something on finger count changes
+            }
+        });
+
+        gestureDetector.setScrollListener(new GestureDetector.ScrollListener() {
+            @Override
+            public boolean onScroll(float displacement, float delta, float velocity) {
+                // do something on scrolling
+                return false;
+            }
+        });
+        return gestureDetector;
+    }
+    @Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        if (mGestureDetector != null) {
+            return mGestureDetector.onMotionEvent(event);
+        }
+        return false;
+    }
+
 }

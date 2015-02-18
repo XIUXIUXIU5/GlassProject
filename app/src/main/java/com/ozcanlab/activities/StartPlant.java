@@ -49,7 +49,11 @@ public class StartPlant extends Activity {
                     Indoor = true;
                     startActivity(Indoor);
                     return true;
+                } else if (gesture == Gesture.SWIPE_DOWN){
+                        finish();
                 }
+
+
                 return false;
             }
         });

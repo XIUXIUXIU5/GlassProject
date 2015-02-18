@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/mStartHorRect" android:title="@string/mStartHorRect"
+        android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/mStartVertRect" android:title="@string/mStartVertRect"
+        android:icon="@drawable/ic_photo" />
+
+    <item android:id="@+id/mStartSquare" android:title="@string/mStartSquare"
+        android:icon="@drawable/ic_photo" />
+
+</menu><!-- From: file:/Users/shaolei/AndroidStudioProjects/GlassProject1/app/src/main/res/menu/activity_imager_menu.xml -->
