@@ -71,7 +71,7 @@ import static com.ozcanlab.utils.Constants.APP_TAG;
  */
 public class PlantImagerActivity extends Activity {
 
-    private boolean Indoor;
+    private String Indoor;
     private int numOfPictureTaken = 0;
 
     //    private GestureDetector gestureInterpreter;
@@ -110,7 +110,7 @@ public class PlantImagerActivity extends Activity {
 
         //get intent(indoor)
         Intent intent = getIntent();
-        Indoor = intent.getBooleanExtra(StartPlant.EXTRA_MESSAGE,false);
+        Indoor = intent.getStringExtra(StartPlant.EXTRA_MESSAGE);
 
 
         /* This code together with the one in onDestroy() 
@@ -650,7 +650,8 @@ public class PlantImagerActivity extends Activity {
 
 
     //new MyPictureCallBackJPG ( take two photos without uploading the photo)
-
+/*Author(s): Lei Shao
+* get called after taking the picture*/
 
     private class MyPictureCallBackJPG implements Camera.PictureCallback {
 
@@ -682,7 +683,8 @@ public class PlantImagerActivity extends Activity {
             }
         }
     }
-
+    /*Author(s): Lei Shao
+    * save the image that has been taken*/
     private class SaveImageTask extends AsyncTask<byte[], Void, Void> {
 
         public boolean locked;

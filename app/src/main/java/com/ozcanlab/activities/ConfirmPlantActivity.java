@@ -1,4 +1,7 @@
-package com.ozcanlab.activities;
+/*Author(s): Lei Shao
+* show confrimation page of leaf*/
+
+        package com.ozcanlab.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,7 +22,7 @@ import com.ozcanlab.rdt.R;
 
 public class ConfirmPlantActivity extends Activity {
 
-    private boolean Indoor;
+    private String Indoor;
     private Location lastLocation;
     private String firstPhotoPath;
     private String secondPhotoPath;
@@ -33,7 +36,7 @@ public class ConfirmPlantActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        Indoor = intent.getBooleanExtra(PlantImagerActivity.INDOOR_MESSAGE,false);
+        Indoor = intent.getStringExtra(PlantImagerActivity.INDOOR_MESSAGE);
         firstPhotoPath = intent.getStringExtra(PlantImagerActivity.FIRST_PHOTO_PATH);
         secondPhotoPath = intent.getStringExtra(PlantImagerActivity.SECOND_PHOTO_PATH);
        // lastLocation = intent.
@@ -54,7 +57,7 @@ public class ConfirmPlantActivity extends Activity {
 
         TextView IndoorTextView = (TextView) findViewById(R.id.Indoor);
 
-        if (Indoor == true)
+        if (Indoor == "INDOOR")
         {
             IndoorTextView.setText("Indoor");
         }
@@ -101,6 +104,12 @@ public class ConfirmPlantActivity extends Activity {
                     Intent menuIntent = new Intent(ConfirmPlantActivity.this, PlantMenuActivity.class);
                    // menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                            // Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    menuIntent.putExtra(PlantImagerActivity.INDOOR_MESSAGE, Indoor);
+                    menuIntent.putExtra(PlantImagerActivity.FIRST_PHOTO_PATH, firstPhotoPath);
+                    menuIntent.putExtra(PlantImagerActivity.SECOND_PHOTO_PATH, secondPhotoPath);
+
+
+
                     startActivity(menuIntent);
                     return true;
                 } else if (gesture == Gesture.TWO_TAP) {

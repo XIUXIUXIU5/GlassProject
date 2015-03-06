@@ -31,6 +31,7 @@
     <string name="glass_voice_prompt">center rdt in front of camera</string>
     <string name="hello_world">Hello world!</string>
     <string name="instruction">Swipe to choose lighting condition</string>
+    <string name="instructions">Tap to return to the main menu</string>
     <string name="mStartHorRect"> Horizontal Rectangle</string>
     <string name="mStartSquare">Circle</string>
     <string name="mStartVertRect">Vertical Rectangle</string>
@@ -40,6 +41,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_plant_camera">PlantCameraActivity</string>
     <string name="title_activity_plant_menu">PlantMenuActivity</string>
+    <string name="title_activity_plant_result_main">PlantResultMainActivity</string>
     <string name="title_activity_start_plant">StartPlant</string>
     <!-- From: file:/Users/shaolei/AndroidStudioProjects/GlassProject1/app/src/main/res/values/style.xml -->
     <eat-comment/>

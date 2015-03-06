@@ -1,4 +1,7 @@
-package com.ozcanlab.activities;
+/*Author(s): Lei Shao
+* show menu for overlay options*/
+
+ package com.ozcanlab.activities;
 
 import android.app.Activity;
 import android.content.Intent;

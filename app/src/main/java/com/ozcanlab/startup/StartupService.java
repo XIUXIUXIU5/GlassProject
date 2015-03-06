@@ -1,10 +1,7 @@
+/*Author(s): Lei Shao
+* start app and create the live card*/
 package com.ozcanlab.startup;
 
-
-import com.ozcanlab.activities.ImagerActivity;
-import com.ozcanlab.rdt.R;
-import com.google.android.glass.timeline.LiveCard;
-import com.google.android.glass.timeline.LiveCard.PublishMode;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -13,7 +10,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
 
-import static com.ozcanlab.utils.Constants.APP_TAG;
+import com.google.android.glass.timeline.LiveCard;
+import com.google.android.glass.timeline.LiveCard.PublishMode;
+import com.ozcanlab.rdt.R;
 
 
 /**

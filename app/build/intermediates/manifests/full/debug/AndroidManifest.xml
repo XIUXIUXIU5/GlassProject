@@ -147,6 +147,10 @@
             android:label="@string/title_activity_imager_menu"
             android:theme="@style/MenuTheme" >
         </activity>
+        <activity
+            android:name="com.ozcanlab.activities.PlantResultMainActivity"
+            android:label="@string/title_activity_plant_result_main" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 /*Author(s): Lei Shao
-* select indoor and outdoor options by swiping*/
+* show result received from the server*/
+
 package com.ozcanlab.activities;
 
 import android.app.Activity;
@@ -9,26 +10,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
 import com.google.android.glass.touchpad.Gesture;
 import com.google.android.glass.touchpad.GestureDetector;
 import com.ozcanlab.rdt.R;
+import com.ozcanlab.startup.MenuActivity;
 
-public class StartPlant extends Activity {
-
-    public final static String EXTRA_MESSAGE = "com.ozcanlab.rdt.MESSAGE";
+public class PlantResultMainActivity extends Activity {
     private GestureDetector mGestureDetector;
-
-    private String Indoor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_plant);
-        mGestureDetector = createGestureDetector(this);
+        setContentView(R.layout.activity_plant_result_main);
 
+
+        Intent intent = getIntent();
+        String resultFromSever = intent.getStringExtra(PlantMenuActivity.RESULT_MESSAGE);
+
+        TextView result = (TextView) findViewById(R.id.result);
+        result.setText(resultFromSever);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_plant_result_main, menu);
+        return true;
+    }
     private GestureDetector createGestureDetector(final Context context) {
         GestureDetector gestureDetector = new GestureDetector(context);
         //Create a base listener for generic gestures
@@ -37,25 +48,25 @@ public class StartPlant extends Activity {
             public boolean onGesture(Gesture gesture) {
                 if (gesture == Gesture.TAP) {
                     // do something on tap
+                    Intent intent = new Intent(PlantResultMainActivity.this, MenuActivity.class);
+                    // menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                    // Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    startActivity(intent);
                     return true;
+
                 } else if (gesture == Gesture.TWO_TAP) {
                     // do something on two finger tap
                     return true;
                 } else if (gesture == Gesture.SWIPE_RIGHT) {
                     // do something on right (forward) swipe
-                    Indoor = "OUTDOORS";
-                    startActivity(Indoor);
+
                     return true;
                 } else if (gesture == Gesture.SWIPE_LEFT) {
                     // do something on left (backwards) swipe
-                    Indoor = "INDOORS";
-                    startActivity(Indoor);
+
                     return true;
-                } else if (gesture == Gesture.SWIPE_DOWN){
-                        finish();
                 }
-
-
                 return false;
             }
         });
@@ -77,18 +88,6 @@ public class StartPlant extends Activity {
         });
         return gestureDetector;
     }
-
-    private void startActivity(String indoor)
-    {
-        Intent intent = new Intent(this, PlantImagerActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, indoor);
-        startActivity(intent);
-
-    }
-
-    /*
-     * Send generic motion events to the gesture detector
-     */
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
         if (mGestureDetector != null) {
@@ -96,15 +95,6 @@ public class StartPlant extends Activity {
         }
         return false;
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_start_plant, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

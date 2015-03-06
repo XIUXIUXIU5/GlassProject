@@ -19,7 +19,6 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -142,11 +141,14 @@
             android:label="@string/title_activity_plant_menu"
             android:theme="@style/MenuTheme" >
         </activity>
-
         <activity
             android:name="com.ozcanlab.activities.ImagerMenuActivity"
             android:label="@string/title_activity_imager_menu"
             android:theme="@style/MenuTheme" >
+        </activity>
+        <activity
+            android:name="com.ozcanlab.activities.PlantResultMainActivity"
+            android:label="@string/title_activity_plant_result_main" >
         </activity>
     </application>
 

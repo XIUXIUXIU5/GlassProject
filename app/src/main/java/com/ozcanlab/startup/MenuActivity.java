@@ -1,4 +1,9 @@
+/**
+ * @author LeiShao
+ * creat the menu with options:RDT Leaf Mercury Imager Stop
+ */
 package com.ozcanlab.startup;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -9,10 +14,7 @@ import com.ozcanlab.activities.ImagerMenuActivity;
 import com.ozcanlab.activities.StartPlant;
 import com.ozcanlab.rdt.R;
 
-/**
- * @author LeiShao
- * creat the menu with options:RDT Leaf Mercury Imager Stop
- */
+
 public class MenuActivity extends Activity {
 
     // Requested actions.
@@ -81,7 +83,15 @@ public class MenuActivity extends Activity {
 
         else if (mStartLeaf) {
             mStartLeaf = false;
+/*
+            GlassClient test = new GlassClient("devpc02.ee.ucla.edu", 8045,true);
+            test.send();
+            if(test.getResult())
+            test.closeSocket();
+
+*/
             startActivity(new Intent(MenuActivity.this, StartPlant.class));
+
         }
 
         else if (mStartMercury)
